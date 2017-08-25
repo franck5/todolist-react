@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Todolist from './todolist';
 import './index.css';
 
 ReactDOM.render(
-  <App />,
+  <Todolist />,
   document.getElementById('root')
 );
