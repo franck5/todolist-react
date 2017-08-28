@@ -1,23 +1,11 @@
 import React, { Component } from 'react';
 
 	class Addtask extends Component {
-		constructor(props) {
-			super(props);
-			this.Recup = this.Recup.bind(this);
-    		this.Loading = this.Loading.bind(this);
-			this.state = {value: ''};
-		}
-
-		Recup(event){
-			this.setState({value : event.target.value});
-			var result = [];
-			result.push(event);
-			console.log(result);
-		}
-
-		Loading(event){
-			event.preventDefault();
-
+		
+		constructor(){
+			super();
+			this.state = { value : "",
+			}
 		}
 
 
@@ -25,11 +13,14 @@ import React, { Component } from 'react';
 		render() {
 
       		return (
-		        <form onSubmit={this.Loading}>
-		          <label>
-		           Name:
-		            <input type="text" name="test" value={this.state.value} onChange={this.Recup}/>
-		          </label>
+		        <form onSubmit={ (e) => {
+		        	e.preventDefault();
+		        	console.log(this.state.value);
+		        	this.setState({value : ""});
+		        }}>
+		          <label htmlFor="add">Ajouter une tache</label>
+		            <input onChange={ (e) => {this.setState({value : e.target.value})}} type="text" name="add" id="add" value={this.state.value}/>
+		        
 		        <input type="submit" value="Submit" />
 		        </form>
 		    );
