@@ -15,7 +15,8 @@ import React, { Component } from 'react';
       		return (
 		        <form onSubmit={ (e) => {
 		        	e.preventDefault();
-		        	console.log(this.state.value);
+		        	
+		        	this.props.addTask(this.state.value);
 		        	this.setState({value : ""});
 		        }}>
 		          <label htmlFor="add">Ajouter une tache</label>
